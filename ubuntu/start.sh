@@ -2,6 +2,14 @@
 
 echo "pod started"
 
+# move cache to workspace
+rm -r /root/.cache
+if [ ! -d "/workspace/.cache" ]; then
+    mkdir -p /workspace/.cache
+fi
+ln -s /workspace/.cache /root/
+
+
 if [[ $PUBLIC_KEY ]]
 then
     mkdir -p ~/.ssh
