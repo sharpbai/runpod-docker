@@ -2,12 +2,27 @@
 
 echo "pod started"
 
-# move cache to workspace
-rm -r /root/.cache
-if [ ! -d "/workspace/.cache" ]; then
-    mkdir -p /workspace/.cache
+# move root to workspace
+if [ ! -d "/workspace/.root" ]; then
+    mv /root /workspace/
+    mv /workspace/root /workspace/.root
+else
+    rm -r /root
 fi
-ln -s /workspace/.cache /root/
+ln -s /workspace/.root /root
+
+
+# move TMPDIR to workspace
+if [ ! -d "/workspace/.tmp" ]; then
+    mkdir -p /workspace/.tmp
+fi
+export TMPDIR=/workspace/.tmp
+
+# move venv
+if [ ! -d "/workspace/venv" ]; then
+    mv /workspace-tmp/* /workspace/
+fi
+rm -r /workspace-tmp
 
 
 if [[ $PUBLIC_KEY ]]
