@@ -42,7 +42,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     rm get-pip.py
 
     # 安装jupyterlab, nvitop和envkernel
-RUN pip install -U jupyterlab ipywidgets jupyter-archive notebook && \
+RUN pip install -U jupyterlab==3.6.3 ipywidgets jupyter-archive notebook && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter labextension disable "@jupyterlab/apputils-extension:announcements" && \
     pip install --upgrade nvitop && pip install envkernel tqdm && \
