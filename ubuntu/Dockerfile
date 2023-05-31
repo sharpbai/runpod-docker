@@ -21,6 +21,7 @@ RUN apt-get update --yes && \
     vim net-tools iftop iotop rsync tzdata \
     dnsutils git-lfs \
     openssh-server pv && \
+    lshw pciutils && \
     echo "# 安装python3相关的套件" && \
     apt install python3-dev python3-venv -y --no-install-recommends && \
     apt install python-is-python3 && \
