@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=sharpbai/runpod-torch:2.0.0-cuda11.8.0-cudnn8-devel-ubuntu22.04
+ARG BASE_IMAGE=sharpbai/runpod-torch:2.0.1-cuda11.8.0-cudnn8-devel-ubuntu22.04
 ARG APP_VERSION=v21.5.10
 
 FROM ${BASE_IMAGE} as dev-base
