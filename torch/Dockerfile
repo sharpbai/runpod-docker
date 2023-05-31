@@ -5,7 +5,7 @@ FROM ${BASE_IMAGE} as dev-base
 RUN ln -s /workspace-tmp /workspace && \
     source /workspace/venv/bin/activate && \
     echo "#从下方开始添加venv内命令" > /dev/null && \
-    pip install torch==2.0.0 torchvision torchaudio \
+    pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 \
     --index-url https://download.pytorch.org/whl/cu118 \
     --extra-index-url https://pypi.org/simple && \
     rm /workspace/venv/lib/python3.10/site-packages/torch/lib/libcudnn* && \

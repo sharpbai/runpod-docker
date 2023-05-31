@@ -30,6 +30,10 @@ RUN ln -s /workspace-tmp /workspace && \
     /usr/lib/x86_64-linux-gnu/libnvinfer.so.7 && \
     ln -s /usr/lib/x86_64-linux-gnu/libnvinfer_plugin.so \
     /usr/lib/x86_64-linux-gnu/libnvinfer_plugin.so.7 && \
+    echo "# Pre download openai/clip-vit-large-patch14" > /dev/null && \
+    python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='openai/clip-vit-large-patch14')" && \
+    sed -i 's/"openai\/clip-vit-large-patch14"/"openai\/clip-vit-large-patch14", local_files_only=True/' /workspace/kohya_ss/library/model_util.py && \
+    echo "# Add app alias" > /dev/null && \
     echo "alias activate_app='source /workspace/venv/bin/activate && cd kohya_ss && python kohya_gui.py --server_port 7860 --listen 0.0.0.0 --headless'" >> /root/.bashrc && \
     echo "#End add cmd in venv" > /dev/null && \
     cd / && \
