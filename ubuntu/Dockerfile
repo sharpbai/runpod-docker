@@ -1,6 +1,5 @@
-ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
-
-FROM ${BASE_IMAGE} as dev-base
+ARG CUDA_BASE_IMG_VERSION=passed-by-build-arg
+FROM nvidia/cuda:${CUDA_BASE_IMG_VERSION} as dev-base
 
 WORKDIR /
 
