@@ -45,6 +45,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
 RUN pip install -U jupyterlab==3.6.3 ipywidgets jupyter-archive notebook && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter labextension disable "@jupyterlab/apputils-extension:announcements" && \
+    pip install jupyter-server-proxy && \
     pip install --upgrade nvitop && pip install envkernel tqdm && \
     pip cache purge
 
