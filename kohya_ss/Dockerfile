@@ -1,7 +1,10 @@
+ARG TORCH_BASE_IMG_VERSION=passed-by-build-arg
 ARG BASE_IMAGE=sharpbai/runpod-torch:2.0.1-cuda11.8.0-cudnn8-devel-ubuntu22.04
 ARG APP_VERSION=v21.5.10
 
-FROM ${BASE_IMAGE} as dev-base
+FROM sharpbai/runpod-torch:${TORCH_BASE_IMG_VERSION} as dev-base
+
+ARG APP_VERSION
 
 RUN apt-get update --yes && \
     apt install --yes libglib2.0-0 libgoogle-perftools-dev \
@@ -21,6 +24,7 @@ RUN ln -s /workspace-tmp /workspace && \
     cd kohya_ss && git checkout ${APP_VERSION} && \
     echo "#Install kohya_ss deps" > /dev/null && \
     pip install --use-pep517 -r requirements.txt xformers && \
+    pip install gradio==3.33.1 && \
     echo "#Replace pillow with pillow-simd" > /dev/null && \
     pip uninstall -y pillow && \
     CC="cc -mavx2" pip install -U \

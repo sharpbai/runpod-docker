@@ -6,7 +6,7 @@ docker run -it --rm \
 	-p 220:22/tcp -p 8888:8888/tcp -p 7860:7860 \
 	--storage-opt size=10G \
 	-v ${WORKSPACE_VOL}:/workspace \
-	runpod-kohya_ss:21.5.10 
+	runpod-kohya_ss:21.5.10-cu118
 docker volume rm ${WORKSPACE_VOL}
 #-v "$(pwd)/workspace:/workspace"
 #-u root:$(id -u sharpbai) \
