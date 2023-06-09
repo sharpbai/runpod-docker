@@ -1,5 +1,4 @@
 ARG TORCH_BASE_IMG_VERSION=passed-by-build-arg
-ARG BASE_IMAGE=sharpbai/runpod-torch:2.0.1-cuda11.8.0-cudnn8-devel-ubuntu22.04
 ARG APP_VERSION=v21.5.10
 
 FROM sharpbai/runpod-torch:${TORCH_BASE_IMG_VERSION} as dev-base
