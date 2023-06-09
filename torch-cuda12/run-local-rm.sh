@@ -6,5 +6,6 @@ docker run -it --rm \
 	-p 220:22/tcp -p 8888:8888/tcp \
 	--storage-opt size=10G \
 	-v ${WORKSPACE_VOL}:/workspace \
-	runpod-torch:2.0.1-cuda12.0.1-cudnn8-devel-ubuntu22.04
+	runpod/pytorch:3.10-2.0.1-120-devel
+	#runpod-torch:2.0.1-cuda12.0.1-cudnn8-devel-ubuntu22.04
 docker volume rm ${WORKSPACE_VOL}
