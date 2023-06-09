@@ -16,6 +16,7 @@ RUN apt-get update --yes && \
     curl \
     bash \
     libgl1 \
+    unzip \
     software-properties-common \
     vim net-tools iftop iotop rsync tzdata \
     dnsutils git-lfs \
@@ -29,6 +30,8 @@ RUN apt-get update --yes && \
     apt install -y nvtop && \
     echo "# 清理apt" && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i s@/mirrors.tuna.tsinghua.edu.cn/@/archive.ubuntu.com/@g /etc/apt/sources.list
 
 RUN echo "# config locale" && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
