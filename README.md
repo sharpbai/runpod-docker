@@ -8,6 +8,7 @@ runpod-docker
 - cuda基础镜像 [runpod-cuda](https://hub.docker.com/repository/docker/sharpbai/runpod-cuda/general)
 - torch基础镜像 [runpod-torch](https://hub.docker.com/repository/docker/sharpbai/runpod-torch/general)
 - kohya_ss应用镜像 [runpod-kohya_ss](https://hub.docker.com/repository/docker/sharpbai/runpod-kohya_ss/general)
+- colab环境本地镜像 [colab-local](https://hub.docker.com/repository/docker/sharpbai/colab-local/general)
 
 > basaran应用镜像不推荐使用
 
