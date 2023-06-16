@@ -1,5 +1,5 @@
 ARG TORCH_BASE_IMG_VERSION=passed-by-build-arg
-ARG APP_VERSION=v1.0.0
+ARG APP_VERSION=passed-by-build-arg
 
 FROM sharpbai/runpod-torch:${TORCH_BASE_IMG_VERSION} as dev-base
 
@@ -16,7 +16,7 @@ RUN ln -s /workspace-tmp /workspace && \
     cd /workspace && \
     echo "#Start add cmd in venv" > /dev/null && \
     # 克隆代码库
-    git clone --depth 1 -b v1.0.0 \
+    git clone --depth 1 -b v${APP_VERSION} \
     https://github.com/sharpbai/Huatuo-Llama-Med-Chinese.git && \
     cd Huatuo-Llama-Med-Chinese && \
     echo "#Install Huatuo-Llama-Med-Chinese deps" > /dev/null && \
